@@ -19,23 +19,24 @@ import java.io.IOException;
 public class ScreenShot {
     // Логгер
     private Logger logger = LogManager.getLogger(ScreenShot.class);
-    // Драйвер
-    protected static WebDriver driver;
 
-    public static void captureScreen() {
+    //скрин всей страницы
+    public static void captureScreen(WebDriver driver, String name) {
+
         // Сделать скриншот всей веб страницы
 
         try {
             Screenshot screenshot = new AShot()
                     .shootingStrategy(ShootingStrategies.viewportPasting(100))
                     .takeScreenshot(driver);
-            ImageIO.write(screenshot.getImage(), "png", new File("temp\\ASFullPage.png"));
+            ImageIO.write(screenshot.getImage(), "png", new File(name));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+
 }
 
 

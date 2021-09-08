@@ -1,16 +1,14 @@
 package tests;
 
 import helpers.JSExec;
+
+import static helpers.ScreenShot.captureScreen;
+
 import org.junit.jupiter.api.Test;
 import pages.StartPage;
 import pages.TelevizoryPage;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import pages.TelevizoryProductPage;
 
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
 
 public class TelevizorPage_Test extends BaseTest {
     @Test
@@ -39,74 +37,76 @@ public class TelevizorPage_Test extends BaseTest {
         startPage.linkTvAndMultimediaMove();
         //Нажатие на ссылку "Телевизоры"
         startPage.linkTvClick();
+//        скрин экрана
+        captureScreen(driver, "temp\\1.png");
         // ***** Страница "Телевизоры" *****
         TelevizoryPage televizoryPage = new TelevizoryPage(driver);
+//        скрыть шапку сайта
         televizoryPage.mainBlockHide();
-        // Нажатие на выпадашку "Сортировка"
-        televizoryPage.accordeonSortClick();
-        // Установка сортировки "Сначала дорогие"
-        televizoryPage.rbtnExpensiveClick();
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1000);
         // Установка фильтра "Производитель"
         televizoryPage.chbxCompanyClick(company);
-
         //    Нажать на выпадашку "Выбор диагонали экрана"
         televizoryPage.accordeonValueScreenDiagonalClick();
-        // Сделать скриншот всей веб страницы
-        try {
-            Screenshot screenshot = new AShot()
-                    .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                    .takeScreenshot(driver);
-            ImageIO.write(screenshot.getImage(), "png", new File("temp\\ASFullPage.png"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        televizoryPage.containerBlockHide();
+//        скрыть нижний контейнер сайта
+        televizoryPage.mainСontainerBlockHide();
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1200);
-        //    Выбор диагонали экрана
-        televizoryPage.setMinValueScreenDiagonal(minValueScreenDiagonal);
+        //    Выбор минимальной диагонали экрана
+        televizoryPage.inputMinValueScreenDiagonal(minValueScreenDiagonal);
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1200);
-        televizoryPage.setMaxValueScreenDiagonal(maxValueScreenDiagonal);
-
-
+        //    Выбор максимальной диагонали экрана
+        televizoryPage.inputMaxValueScreenDiagonal(maxValueScreenDiagonal);
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1000);
         //    Нажать на выпадашку "тип подсветки экрана"
         televizoryPage.accordeonBacklightTypeClick();
-
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1200);
         // Установка фильтра 'Тип подсветки' - 'Direct LED'
         televizoryPage.chbxBacklightTypeClick(backlightType);
-
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1500);
         //Нажатие на выпадашку "Частота обновления экрана"
         televizoryPage.accordeonScreenRefreshClick();
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1800);
-
         // Установка фильтра "Частота обновления экрана - 120 Гц"
         televizoryPage.chbxScreenRefreshClick(refreshValue);
-
         // Прокрутка страницы вниз
         JSExec.scrollBy(0, 1800);
+        // Нажать на кнопку 'Применить'
         televizoryPage.btnApplyClick();
-        // Сделать скриншот всей веб страницы
-        try {
-            Screenshot screenshot = new AShot()
-                    .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                    .takeScreenshot(driver);
-            ImageIO.write(screenshot.getImage(), "png", new File("temp\\ASFullPage.png"));
+        // скрин экрана
+        captureScreen(driver, "temp\\2.png");
+        // Нажатие на выпадашку "Сортировка"
+        televizoryPage.accordeonSortClick();
+        // Установка сортировки "Сначала дорогие"
+        televizoryPage.rbtnExpensiveClick();
+        // скрин экрана
+        captureScreen(driver, "temp\\3.png");
+        // Прокрутка страницы вниз
+        JSExec.scrollBy(0, 500);
+        // Нажатие на ссылку первого продукта в списке
+        televizoryPage.linkFirstProductClick("Телевизор LED Samsung QE75Q950TSUXRU");
+        // сделать скрин
+        captureScreen(driver, "temp\\4.png");
+        // ***** Страница "Продукт.Телевизор" *****
+        TelevizoryProductPage televizoryProductPage = new TelevizoryProductPage(driver);
+        televizoryProductPage.mainBlockLogoContainerHide();
+        // Получить заголовок страницы
+        televizoryProductPage.getPageTitle();
+        // нажатие ссылки 'Характеристика продукта'
+        televizoryProductPage.linkCharacteristicsClick();
+        // сделать скрин
+        captureScreen(driver, "temp\\5.png");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        televizoryProductPage.linkModelGetText();
+
         return new TelevizoryPage(driver);
+
     }
 
 }

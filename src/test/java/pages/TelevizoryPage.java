@@ -2,13 +2,11 @@ package pages;
 
 import elements.*;
 import elements.Button;
+import helpers.WaitFor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.awt.*;
 
 //Страница "Телевизоры"
 public class TelevizoryPage extends BasePage {
@@ -47,7 +45,8 @@ public class TelevizoryPage extends BasePage {
     String linkFirstProductXpath = "(//a[@class='catalog-product__name ui-link ui-link_black'])[position()='1']";
     //    шапка сайта
     String mainBlockXpath = "//nav[@id='header-search']";
-    String containerBlockXpath = "(//div[@class='container'])[2]";
+    //    нижний контейнер сайта
+    String mainСontainerBlockXpath = "(//div[@class='container'])[2]";
 
     // Нажатие на выпадашку "Сортировка"
     public void accordeonSortClick() {
@@ -68,7 +67,7 @@ public class TelevizoryPage extends BasePage {
         chbxCompanyXpath = chbxCompanyXpath.replace("company", company);
         CheckBox chbxCompany = new CheckBox(driver, By.xpath(chbxCompanyXpath));
         chbxCompany.setChecked(true);
-        logger.info("Установлен фильтр 'Производитель' - " + company);
+        logger.info("Установлен фильтр 'Производитель' -> " + company);
     }
 
     //Нажатие на выпадашку "Частота обновления экрана"
@@ -84,7 +83,7 @@ public class TelevizoryPage extends BasePage {
         chbxScreenRefreshXpath = chbxScreenRefreshXpath.replace("refreshValue", refreshValue);
         CheckBox chbxScreenRefresh = new CheckBox(driver, By.xpath(chbxScreenRefreshXpath));
         chbxScreenRefresh.setChecked(true);
-        logger.info("Установлен фильтр частоты обновления экрана '120 Гц' - " + refreshValue);
+        logger.info("Установлен фильтр частоты обновления экрана ->" + refreshValue);
     }
 
     //    Нажать на выпадашку "тип подсветки экрана"
@@ -99,7 +98,7 @@ public class TelevizoryPage extends BasePage {
         chbxBacklightTypeXpath = chbxBacklightTypeXpath.replace("backlightTypeValue", backlightTypeValue);
         CheckBox chbxBacklightType = new CheckBox(driver, By.xpath(chbxBacklightTypeXpath));
         chbxBacklightType.setChecked(true);
-        logger.info("Установлен фильтр 'Тип подсветки '" + backlightTypeValue);
+        logger.info("Установлен фильтр 'Тип подсветки' ->" + backlightTypeValue);
     }
 
     //    Нажать на выпадашку "Выбор диагонали экрана"
@@ -109,19 +108,19 @@ public class TelevizoryPage extends BasePage {
         logger.info("Нажата выпадашка 'Выбор диагонали экрана'");
     }
 
-    //   Непосредственно Выбор диагонали экрана - минимальная диагональ
+    //  Выбор диагонали экрана - минимальная диагональ
 
-    public void setMinValueScreenDiagonal(String inputMinValueScreenDiagonal) {
+    public void inputMinValueScreenDiagonal(String inputMinValueScreenDiagonal) {
         InputValue inputValueScreen = new InputValue(driver, By.xpath(inputMinValueScreenDiagonalXpath));
         inputValueScreen.inputValue(inputMinValueScreenDiagonal);
-        logger.info("Выбрана диагональ экрана " + inputMinValueScreenDiagonal);
+        logger.info("Выбрана диагональ экрана: от ->" + inputMinValueScreenDiagonal);
     }
 
-    //   Непосредственно Выбор диагонали экрана - максимальная диагональ
-    public void setMaxValueScreenDiagonal(String inputMaxValueScreenDiagonal) {
+    //   Выбор диагонали экрана - максимальная диагональ
+    public void inputMaxValueScreenDiagonal(String inputMaxValueScreenDiagonal) {
         InputValue inputValueScreen1 = new InputValue(driver, By.xpath(inputMaxValueScreenDiagonalXpath));
         inputValueScreen1.inputValue(inputMaxValueScreenDiagonal);
-        logger.info("Выбрана диагональ экрана " + inputMaxValueScreenDiagonal);
+        logger.info("Выбрана диагональ экрана: до ->" + inputMaxValueScreenDiagonal);
     }
 
     // Скрытие шапки
@@ -133,16 +132,24 @@ public class TelevizoryPage extends BasePage {
     }
 
     // скрыть контейнер
-    public void containerBlockHide() {
-        MainBlock containerBlock = new MainBlock(driver, By.xpath(containerBlockXpath));
-        containerBlock.hide();
+    public void mainСontainerBlockHide() {
+        MainBlock mainСontainerBlock = new MainBlock(driver, By.xpath(mainСontainerBlockXpath));
+        mainСontainerBlock.hide();
         logger.info("Скрыт контейнер сайта");
     }
-
+// Нажать кнопку "Применить"
     public void btnApplyClick() {
         Button btnApply = new Button(driver, By.xpath(btnApplyXpath));
         btnApply.click();
         logger.info("Применяем выбранные фильтры");
+    }
+
+    //    Выбор первого продукта
+    public void linkFirstProductClick(String product) {
+        WaitFor.firstProductMustBe(By.xpath(linkFirstProductXpath), product);
+        Link linkProduct = new Link(driver, By.xpath(linkFirstProductXpath));
+        linkProduct.openInNewWindow();
+        logger.info("Нажата ссылка первого продукта в списке");
     }
 
 }

@@ -3,6 +3,7 @@ pages\BasePage.class
 elements\CheckBox.class
 helpers\ScreenShot.class
 elements\MainBlock.class
+pages\TelevizoryProductPage.class
 helpers\JSExec.class
 tests\BaseTest.class
 pages\TelevizoryPage.class
