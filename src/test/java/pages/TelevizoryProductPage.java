@@ -23,13 +23,13 @@ public class TelevizoryProductPage extends BasePage {
     String linkCharacteristicsXpath = "//a[contains(text(),'Характеристики')]";
     //    Модель/Производитель
     String linkModelXpath = "//span[contains(text(),'Модель')]/ancestor::td/following-sibling::td/div";
-
+    // хедер - перекрывает вечно элементы - убрать его
     String mainBlockLogoContainerXpath = "//nav[@id='header-search']";
     //Диагональ экрана
     String linkScreenDiagonalInchXpath = "//span[contains(text(),' Диагональ экрана ')]/ancestor::td/following-sibling::td/div";
     //Частота обновления экрана
     String linkScreenRefreshXpath = "//span[contains(text(),' Частота обновления экрана ')]/ancestor::td/following-sibling::td/div";
-    //
+    //Тип подсветки экрана
     String linkBacklightTypeXpath = "//span[contains(text(),'Тип подсветки экрана')]/ancestor::td/following-sibling::td/div";
 
 
@@ -54,11 +54,19 @@ public class TelevizoryProductPage extends BasePage {
         logger.info("Скрываем перекрывающий контейнер");
     }
 
-
+    //Получение Модель телевизора(производитель)
     public void linkModelGetText() {
         Link linkModel = new Link(driver, By.xpath(linkModelXpath));
-        String s = linkModel.getText();
-        logger.info("Модель телевизора(производитель): " + s);
+        String model = linkModel.getText();
+        logger.info("Модель телевизора(производитель): " + model);
     }
+    //Получение диагонали экрана телевизора
+    public void linkScreenDiagonalInchText() {
+        Link linkScreenDiagonal = new Link(driver, By.xpath(linkScreenDiagonalInchXpath));
+        String diagonal = linkScreenDiagonal.getText();
+        logger.info("Диагональ экрана: " + diagonal);
+    }
+
+
 
 }

@@ -19,7 +19,6 @@ elements\MainBlock.class
 pages\TelevizoryPage.class
 steps\StartPageSteps.class
 tests\televizorys\TelevizorPage_VO_Test.class
-models\TelevizoryJB.class
 models\TelevizoryVO.class
 pages\StartPage.class
 elements\Accordeon.class
