@@ -1,6 +1,5 @@
 package tests.televizorys;
 
-
 import models.TelevizoryBuilder;
 import models.TelevizoryVO;
 import models.valueobjects.BacklightType;
