@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 
-public class Link extends BaseElement {
+public class ClickElement extends BaseElement {
     // Конструктор
-    public Link(WebDriver driver, By by) {
+    public ClickElement(WebDriver driver, By by) {
         super(driver, by);
     }
 

@@ -27,8 +27,8 @@ public class StartPageSteps{
 //
         JSExec.scrollBy(0,300);
 //        Наведение курсора на "ТВ и мультимедиа"
-        startPage.linkTvAndMultimediaMove();
+        startPage.clickTvAndMultimediaMove();
 //        Нажатие на ссылку "ТВ"
-        startPage.linkTvClick();
+        startPage.clickTvClick();
     }
 }
