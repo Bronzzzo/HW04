@@ -1,6 +1,6 @@
 package pages;
 
-import elements.Link;
+import elements.ClickElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,9 +15,9 @@ public class StartPage extends BasePage {
 
     //          ***** Локаторы *****
     //    Ссылка на "ТВ и мультимедиа"
-    String linkTvAndMultimediaXpath = "//a[contains(text(),'ТВ и мультимедиа')]";
+    String clickTvAndMultimediaXpath = "//a[contains(text(),'ТВ и мультимедиа')]";
     //    Ссылка на "Телевизоры"
-    String linkTvXpath = "(//a[contains(text(), 'Телевизоры')])[position()='2']";
+    String clickTvXpath = "(//a[contains(text(), 'Телевизоры')])[position()='2']";
 
     //    Конструктор класса
     public StartPage(WebDriver driver) {
@@ -37,16 +37,16 @@ public class StartPage extends BasePage {
     }
 
     //    Наведение курсора на ссылку "ТВ и мультимедиа"
-    public void linkTvAndMultimediaMove() {
-        Link linkTvAndMultimedia = new Link(driver, By.xpath(linkTvAndMultimediaXpath));
-        linkTvAndMultimedia.focusOnLink();
+    public void clickTvAndMultimediaMove() {
+        ClickElement clickTvAndMultimedia = new ClickElement(driver, By.xpath(clickTvAndMultimediaXpath));
+        clickTvAndMultimedia.focusOnLink();
         logger.info("Курсор мыши наведен на ссылку 'ТВ и мультимедиа'");
 }
 
     //Нажатие на ссылку "Телевизоры"
-    public void linkTvClick() {
-        Link linkTv = new Link(driver, By.xpath(linkTvXpath));
-        linkTv.click();
+    public void clickTvClick() {
+        ClickElement clickTv = new ClickElement(driver, By.xpath(clickTvXpath));
+        clickTv.click();
         logger.info("Нажата ссылка 'Телевизоры'");
     }
 

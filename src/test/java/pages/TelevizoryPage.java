@@ -42,7 +42,7 @@ public class TelevizoryPage extends BasePage {
     String rbtnExpensiveXpath = "//span[contains(text(),'Сначала дорогие')]";
     // Телевизоры
     // - Ссылка на первый продукт в списке
-    String linkFirstProductXpath = "(//a[@class='catalog-product__name ui-link ui-link_black'])[position()='1']";
+    String clickFirstProductXpath = "(//a[@class='catalog-product__name ui-link ui-link_black'])[position()='1']";
     //    шапка сайта
     String mainBlockXpath = "//nav[@id='header-search']";
     //    нижний контейнер сайта
@@ -146,9 +146,9 @@ public class TelevizoryPage extends BasePage {
 
     //    Выбор первого продукта
     public void linkFirstProductClick(String product) {
-        WaitFor.firstProductMustBe(By.xpath(linkFirstProductXpath), product);
-        Link linkProduct = new Link(driver, By.xpath(linkFirstProductXpath));
-        linkProduct.openInNewWindow();
+        WaitFor.firstProductMustBe(By.xpath(clickFirstProductXpath), product);
+        ClickElement clickProduct = new ClickElement(driver, By.xpath(clickFirstProductXpath));
+        clickProduct.openInNewWindow();
         logger.info("Нажата ссылка первого продукта в списке");
     }
 

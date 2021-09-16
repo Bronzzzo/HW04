@@ -1,6 +1,6 @@
 package pages;
 
-import elements.Link;
+import elements.ClickElement;
 import elements.MainBlock;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,17 +20,17 @@ public class TelevizoryProductPage extends BasePage {
     // ***** Локаторы *****
 
     //Характиристики продукта
-    String linkCharacteristicsXpath = "//a[contains(text(),'Характеристики')]";
+    String clickCharacteristicsXpath = "//a[contains(text(),'Характеристики')]";
     //    Модель/Производитель
-    String linkModelXpath = "//span[contains(text(),'Модель')]/ancestor::td/following-sibling::td/div";
+    String clickModelXpath = "//span[contains(text(),'Модель')]/ancestor::td/following-sibling::td/div";
     // хедер - перекрывает вечно элементы - убрать его
     String mainBlockLogoContainerXpath = "//nav[@id='header-search']";
     //Диагональ экрана
-    String linkScreenDiagonalInchXpath = "//span[contains(text(),' Диагональ экрана ')]/ancestor::td/following-sibling::td/div";
+    String clickScreenDiagonalInchXpath = "//span[contains(text(),' Диагональ экрана ')]/ancestor::td/following-sibling::td/div";
     //Частота обновления экрана
-    String linkScreenRefreshXpath = "//span[contains(text(),' Частота обновления экрана ')]/ancestor::td/following-sibling::td/div";
+    String clickScreenRefreshXpath = "//span[contains(text(),' Частота обновления экрана ')]/ancestor::td/following-sibling::td/div";
     //Тип подсветки экрана
-    String linkBacklightTypeXpath = "//span[contains(text(),'Тип подсветки экрана')]/ancestor::td/following-sibling::td/div";
+    String clickBacklightTypeXpath = "//span[contains(text(),'Тип подсветки экрана')]/ancestor::td/following-sibling::td/div";
 
 
     //Получение заголовка текущей страницы
@@ -42,8 +42,8 @@ public class TelevizoryProductPage extends BasePage {
 
     // Нажать  на ссылку 'Характеристика'
     public void linkCharacteristicsClick() {
-        Link linkCharacteristics = new Link(driver, By.xpath(linkCharacteristicsXpath));
-        linkCharacteristics.click();
+        ClickElement clickCharacteristics = new ClickElement(driver, By.xpath(clickCharacteristicsXpath));
+        clickCharacteristics.click();
         logger.info("Нажата ссылка 'Характеристики'");
     }
 
@@ -56,32 +56,32 @@ public class TelevizoryProductPage extends BasePage {
 
     //Получение Модель телевизора(производитель)
     public String getModelTvText() {
-        Link linkModel = new Link(driver, By.xpath(linkModelXpath));
-        String model = linkModel.getText();
+        ClickElement clickModel = new ClickElement(driver, By.xpath(clickModelXpath));
+        String model = clickModel.getText();
         logger.info("Модель телевизора(производитель): " + model);
         return model;
     }
 
     //Получение диагонали экрана телевизора
     public String getScreenDiagonalInchText() {
-        Link linkScreenDiagonal = new Link(driver, By.xpath(linkScreenDiagonalInchXpath));
-        String diagonal = linkScreenDiagonal.getText();
+        ClickElement clickScreenDiagonal = new ClickElement(driver, By.xpath(clickScreenDiagonalInchXpath));
+        String diagonal = clickScreenDiagonal.getText();
         logger.info("Диагональ экрана: " + diagonal);
         return diagonal;
     }
 
     //    Получение Типа подсветки экрана
     public String getBacklightText() {
-        Link linkBacklightType = new Link(driver, By.xpath(linkBacklightTypeXpath));
-        String backlightType = linkBacklightType.getText();
+        ClickElement clickBacklightType = new ClickElement(driver, By.xpath(clickBacklightTypeXpath));
+        String backlightType = clickBacklightType.getText();
         logger.info("Тип подсветки экрана: " + backlightType);
         return backlightType;
     }
 
     //Получение Частоты обновления экрана
     public String getScreenRefreshText() {
-        Link linkScreenRefresh = new Link(driver, By.xpath(linkScreenRefreshXpath));
-        String screenRefresh = linkScreenRefresh.getText();
+        ClickElement clickScreenRefresh = new ClickElement(driver, By.xpath(clickScreenRefreshXpath));
+        String screenRefresh = clickScreenRefresh.getText();
         logger.info("Частота обновления экрана: " + screenRefresh);
         return screenRefresh;
     }
