@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: tests.televizorys.TelevizorPage_VO_Test
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.972 s - in tests.televizorys.TelevizorPage_VO_Test
