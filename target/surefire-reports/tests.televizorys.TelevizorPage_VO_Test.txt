@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tests.televizorys.TelevizorPage_VO_Test
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.186 s <<< FAILURE! - in tests.televizorys.TelevizorPage_VO_Test
-selectedProduct_Is_TV_new  Time elapsed: 3.845 s  <<< ERROR!
-java.lang.IllegalArgumentException: Диагональ экрана выходит за диапазон заданных значений
-	at tests.televizorys.TelevizorPage_VO_Test.selectedProduct_Is_TV_new(TelevizorPage_VO_Test.java:26)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.972 s - in tests.televizorys.TelevizorPage_VO_Test

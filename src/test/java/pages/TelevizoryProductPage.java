@@ -55,18 +55,36 @@ public class TelevizoryProductPage extends BasePage {
     }
 
     //Получение Модель телевизора(производитель)
-    public void linkModelGetText() {
+    public String getModelTvText() {
         Link linkModel = new Link(driver, By.xpath(linkModelXpath));
         String model = linkModel.getText();
         logger.info("Модель телевизора(производитель): " + model);
+        return model;
     }
+
     //Получение диагонали экрана телевизора
-    public void linkScreenDiagonalInchText() {
+    public String getScreenDiagonalInchText() {
         Link linkScreenDiagonal = new Link(driver, By.xpath(linkScreenDiagonalInchXpath));
         String diagonal = linkScreenDiagonal.getText();
         logger.info("Диагональ экрана: " + diagonal);
+        return diagonal;
     }
 
+    //    Получение Типа подсветки экрана
+    public String getBacklightText() {
+        Link linkBacklightType = new Link(driver, By.xpath(linkBacklightTypeXpath));
+        String backlightType = linkBacklightType.getText();
+        logger.info("Тип подсветки экрана: " + backlightType);
+        return backlightType;
+    }
+
+    //Получение Частоты обновления экрана
+    public String getScreenRefreshText() {
+        Link linkScreenRefresh = new Link(driver, By.xpath(linkScreenRefreshXpath));
+        String screenRefresh = linkScreenRefresh.getText();
+        logger.info("Частота обновления экрана: " + screenRefresh);
+        return screenRefresh;
+    }
 
 
 }

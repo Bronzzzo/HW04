@@ -1,7 +1,7 @@
 D:\IdeaProjects\hw04\src\test\java\models\valueobjects\RefreshScreenValue.java
 D:\IdeaProjects\hw04\src\test\java\elements\Button.java
 D:\IdeaProjects\hw04\src\test\java\tests\BaseTest.java
-D:\IdeaProjects\hw04\src\test\java\tests\televizorys\TelevizorPage_Test.java
+D:\IdeaProjects\hw04\src\test\java\pages\PageFactory.java
 D:\IdeaProjects\hw04\src\test\java\models\valueobjects\Company.java
 D:\IdeaProjects\hw04\src\test\java\pages\TelevizoryProductPage.java
 D:\IdeaProjects\hw04\src\test\java\models\TelevizoryVO.java
@@ -13,7 +13,6 @@ D:\IdeaProjects\hw04\src\test\java\pages\TelevizoryPage.java
 D:\IdeaProjects\hw04\src\test\java\webdriverfactory\WebDriverFactory.java
 D:\IdeaProjects\hw04\src\test\java\elements\CheckBox.java
 D:\IdeaProjects\hw04\src\test\java\elements\InputValue.java
-D:\IdeaProjects\hw04\src\test\java\models\TelevizoryJB.java
 D:\IdeaProjects\hw04\src\test\java\webdriverfactory\ChromeBrowser.java
 D:\IdeaProjects\hw04\src\test\java\elements\MainBlock.java
 D:\IdeaProjects\hw04\src\test\java\tests\televizorys\TelevizorProductPageAssert.java
@@ -22,10 +21,13 @@ D:\IdeaProjects\hw04\src\test\java\models\valueobjects\BacklightType.java
 D:\IdeaProjects\hw04\src\test\java\elements\Accordeon.java
 D:\IdeaProjects\hw04\src\test\java\steps\TelevizoryPageSteps.java
 D:\IdeaProjects\hw04\src\test\java\helpers\JSExec.java
+D:\IdeaProjects\hw04\src\test\java\steps\TelevizoryProductPageSteps.java
 D:\IdeaProjects\hw04\src\test\java\webdriverfactory\BrowserName.java
 D:\IdeaProjects\hw04\src\test\java\helpers\WaitFor.java
 D:\IdeaProjects\hw04\src\test\java\helpers\ScreenShot.java
 D:\IdeaProjects\hw04\src\test\java\models\valueobjects\DiagonalScreen.java
 D:\IdeaProjects\hw04\src\test\java\elements\RadioButton.java
+D:\IdeaProjects\hw04\src\test\java\pages\PageName.java
 D:\IdeaProjects\hw04\src\test\java\pages\StartPage.java
+D:\IdeaProjects\hw04\src\test\java\models\TelevizoryBuilder.java
 D:\IdeaProjects\hw04\src\test\java\webdriverfactory\FirefoxBrowser.java

@@ -1,10 +1,12 @@
 package models.valueobjects;
 
+
 import java.io.Serializable;
 
 public class BacklightType implements Serializable {
 
     private String backlightType;
+
 
     //Конструктор
     public BacklightType() {
@@ -17,6 +19,8 @@ public class BacklightType implements Serializable {
         else
             throw new IllegalArgumentException("Тип подсветки экрна не может быть пустым");
     }
+
+
 
     //Геттер
     public String getBacklightType() {

@@ -11,11 +11,14 @@ webdriverfactory\ChromeBrowser.class
 webdriverfactory\FirefoxBrowser.class
 webdriverfactory\WebDriverFactory.class
 tests\televizorys\TelevizorProductPageAssert.class
+pages\PageFactory$1.class
 models\valueobjects\BacklightType.class
 webdriverfactory\BrowserName.class
 elements\InputValue.class
 helpers\ScreenShot.class
+steps\TelevizoryProductPageSteps.class
 elements\MainBlock.class
+pages\PageFactory.class
 pages\TelevizoryPage.class
 steps\StartPageSteps.class
 tests\televizorys\TelevizorPage_VO_Test.class
@@ -26,5 +29,7 @@ elements\Link.class
 models\valueobjects\DiagonalScreen.class
 helpers\WaitFor.class
 webdriverfactory\WebDriverFactory$1.class
+pages\PageName.class
 elements\Button.class
+models\TelevizoryBuilder.class
 steps\TelevizoryPageSteps.class

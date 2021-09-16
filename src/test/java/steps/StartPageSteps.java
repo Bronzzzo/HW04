@@ -1,11 +1,12 @@
 package steps;
 
 
+import helpers.JSExec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pages.StartPage;
 
-public class StartPageSteps {
+public class StartPageSteps{
     // Логгер
     private static Logger logger = LogManager.getLogger(StartPageSteps.class);
     // Ссылка на объект класса StartPage
@@ -18,8 +19,13 @@ public class StartPageSteps {
         logger.info("Открыта стартовая страница DNS");
     }
 
+
+
+
     //    Нажатие на ссылку Телевизоры
     public void clickLinkTV() {
+//
+        JSExec.scrollBy(0,300);
 //        Наведение курсора на "ТВ и мультимедиа"
         startPage.linkTvAndMultimediaMove();
 //        Нажатие на ссылку "ТВ"
